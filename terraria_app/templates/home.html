@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="ui container">
+    <div class="ui stackable two column grid">
+        <!-- Sección de bienvenida -->
+        <div class="column">
+            <h1 class="ui huge header">Bienvenido a Terraria</h1>
+            <p>
+                Terraria es una plataforma dedicada a los amantes de las plantas, donde puedes registrar, monitorear y aprender sobre el cuidado de tus plantas. Desde principiantes hasta expertos botánicos, todos encontrarán algo de valor aquí.
+            </p>
+        </div>
+        <div class="column">
+            <img src="{% static 'terraria/img/image1.png' %}" alt="Imagen de plantas" class="ui large image">
+        </div>
+    </div>
+
+    <!-- Sección de características -->
+    <div class="ui raised very padded text container segment" style="margin-top: 50px; margin-bottom: 50px;">
+        <h2 class="ui header" style="padding-top: 30px; padding-bottom: 30px;">Características</h2>
+        <div class="ui three column grid">
+            <div class="column">
+                <h3 class="ui header">Registra tus Plantas</h3>
+                <p>
+                    Mantén un registro detallado de todas tus plantas, incluyendo nombres comunes y científicos, fecha de adquisición, y ubicaciones en tu hogar o jardín.
+                </p>
+            </div>
+            <div class="column">
+                <h3 class="ui header">Seguimiento de Cuidados</h3>
+                <p>
+                    Crea registros de cuidado para cada planta y realiza un seguimiento de actividades como riego, fertilización y poda. Mantén tus plantas saludables y felices con recordatorios personalizados.
+                </p>
+            </div>
+            <div class="column">
+                <h3 class="ui header">Información y Consejos</h3>
+                <p>
+                    Accede a una base de datos en constante crecimiento con información sobre distintas especies de plantas, consejos de cuidado y soluciones a problemas comunes.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de testimonios u opinión de usuarios -->
+    <div class="ui stackable two column grid">
+        <div class="column">
+            <h2 class="ui header">Lo que Nuestros Usuarios Dicen</h2>
+            <div class="ui testimonial segment">
+                <p>
+                    "Gracias a Terraria, he podido transformar mi jardín en un oasis verde lleno de vida. ¡Las herramientas de seguimiento y los consejos han sido invaluables!"
+                </p>
+                <p>- Alex, Aficionado al Jardín</p>
+            </div>
+            <div class="ui testimonial segment">
+                <p>
+                    "Como un entusiasta de las plantas urbanas, Terraria ha sido una herramienta clave para organizar y cuidar mi colección de interiores. ¡La interfaz es intuitiva y muy útil!"
+                </p>
+                <p>- Sam, Entusiasta de Plantas Urbanas</p>
+            </div>            
+            <div class="ui testimonial segment">
+                <p>
+                    "Terraria me ha ayudado a entender mejor las necesidades específicas de cada planta. Ahora mis suculentas y orquídeas están floreciendo como nunca antes."
+                </p>
+                <p>- Mia, Amante de Suculentas y Orquídeas</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="{% static 'terraria/img/image2.png' %}" alt="Imagen representativa" class="ui large image">
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="ui container">
+    <form method="post" class="ui form">
+        {% csrf_token %}
+        <div class="field">
+            <label>Planta</label>
+            {{ form.planta }}
+        </div>
+        <div class="field">
+            <label>Preguntas</label>
+            {{ form.preguntas }}
+        </div>
+        <button type="submit" class="ui button">Crear Registro</button>
+    </form>
+</div>
+{% endblock %}
