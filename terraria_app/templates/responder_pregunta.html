@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="ui container">
+    <form method="post" class="ui form">
+        {% csrf_token %}
+        <h2>{{ pregunta_cuidado.pregunta.texto }}</h2>
+
+        {% for opcion in pregunta_cuidado.pregunta.get_opciones %}
+            <button type="submit" name="respuesta" value="{{ opcion }}" class="ui fluid large button">
+                {{ opcion }}
+            </button>
+        {% endfor %}
+
+        {% if respuesta_seleccionada %}
+            <div class="ui section divider"></div>
+            <a href="{% url 'siguiente_pregunta' registro_cuidado.id pregunta_cuidado.id %}" class="ui primary button">Siguiente</a>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

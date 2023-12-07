@@ -11,8 +11,23 @@
         Registros
     </a>
     <div class="right menu">
-        <div class="item">
-            <a href="{% url 'crear_registro_cuidado' %}" class="ui primary button">Crear Registro</a>
-        </div>
+        {% if user.is_authenticated %}
+            <div class="item">
+                <span>{{ user.get_full_name|default:user.username }}</span>
+            </div>
+            <div class="item">
+                <a href="{% url 'logout' %}" class="ui button">Cerrar sesión</a>
+            </div>
+            <div class="item">
+                <a href="{% url 'crear_registro_cuidado' %}" class="ui primary button">Crear Registro</a>
+            </div>
+        {% else %}
+            <div class="item">
+                <a href="{% url 'login' %}" class="ui button">Iniciar sesión</a>
+            </div>
+            <div class="item">
+                <a href="{% url 'register' %}" class="ui primary button">Crear cuenta</a>
+            </div>
+        {% endif %}
     </div>
 </div>

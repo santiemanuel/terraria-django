@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="ui container">
+    <h2>Resumen de la Sesión de Cuidado</h2>
+    
+    {% if respuestas %}
+        <div class="ui very relaxed divided list">
+            {% for respuesta in respuestas %}
+                <div class="item">
+                    <i class="large caret right icon"></i>
+                    <div class="content">
+                        <div class="header">{{ respuesta.pregunta_cuidado.pregunta.texto }}</div>
+                        <div class="description">Respuesta: {{ respuesta.respuesta }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No hay respuestas registradas en esta sesión.</p>
+    {% endif %}
+</div>
+{% endblock %}

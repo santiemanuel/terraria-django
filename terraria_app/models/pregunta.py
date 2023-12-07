@@ -30,14 +30,29 @@ class RegistroCuidado(models.Model):
         return f"{self.estado} - Cuidado de {self.planta.nombre_comun} por {self.usuario.username}"
 
 
-
-class RespuestaCuidado(models.Model):
+class PreguntaCuidado(models.Model):
     registro_cuidado = models.ForeignKey(RegistroCuidado, on_delete=models.CASCADE)
     pregunta = models.ForeignKey(Pregunta, on_delete=models.CASCADE)
-    respuesta = models.CharField(max_length=200)  # Almacena la opción seleccionada
+    orden = models.IntegerField()
+
+    def __str__(self):
+        return f"Pregunta '{self.pregunta.texto}' en {self.registro_cuidado}"
+
+class SesionCuidado(models.Model):
+    registro_cuidado = models.ForeignKey(RegistroCuidado, on_delete=models.CASCADE)
+    usuario = models.ForeignKey('accounts.UserModel', on_delete=models.CASCADE)
+    fecha_inicio = models.DateTimeField(auto_now_add=True)
+    fecha_finalizacion = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return f"Sesión para {self.registro_cuidado} por {self.usuario.username} comenzó en {self.fecha_inicio}"
+
+class RespuestaCuidado(models.Model):
+    sesion_cuidado = models.ForeignKey(SesionCuidado, on_delete=models.CASCADE)
+    pregunta_cuidado = models.ForeignKey(PreguntaCuidado, on_delete=models.CASCADE, null=True)
+    respuesta = models.CharField(max_length=200, null=True)  # Almacena la opción seleccionada
     fecha = models.DateTimeField(auto_now_add=True)
     usuario = models.ForeignKey('accounts.UserModel', on_delete=models.CASCADE)
-    orden = models.IntegerField()
 
     def __str__(self):
         return f"Respuesta '{self.respuesta}' para '{self.pregunta.texto}' en {self.registro_cuidado}"

@@ -19,3 +19,7 @@ class UserRegisterForm(UserCreationForm):
 class UserLoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = UserModel
+        fields = ['username', 'password']

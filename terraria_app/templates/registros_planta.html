@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="ui container">
+    <h2>Registros de {{ planta.nombre_comun }}</h2>
+    <div class="ui stackable four column grid">
+        {% for registro in registros %}
+            <div class="column">
+                <div class="ui card">
+                    <div class="content">
+                        <div class="header">Registro {{ registro.id }}</div>
+                        <div class="meta">
+                            <span class="date">Creado el {{ registro.fecha|date:"Y-m-d H:i" }}</span>
+                        </div>
+                        <div class="description">
+                            Estado: Pendiente
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <a href="{% url 'detalle_registro_cuidado' registro.id %}" class="ui button">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No hay registros para esta planta aún.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

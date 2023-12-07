@@ -1,5 +1,27 @@
 from django.contrib import admin
-from .models import Planta
+from .models.planta import Planta
+from .models.pregunta import Pregunta
+
+
+@admin.register(Pregunta)
+class PreguntaAdmin(admin.ModelAdmin):
+    list_display = ('texto', 'opciones')
+    list_filter = ('texto', 'opciones')
+    search_fields = ('texto', 'opciones')
+
+    fieldsets = (
+        (None, {
+            'fields': ('texto', 'opciones')
+        }),
+    )
+
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('texto', 'opciones')}
+        ),
+    )
+
 
 
 @admin.register(Planta)
