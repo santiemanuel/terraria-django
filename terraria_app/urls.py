@@ -12,7 +12,7 @@ urlpatterns = [
     path('registro-cuidado/<int:id>/', views.detalle_registro_cuidado_view, name='detalle_registro_cuidado'),
     path('registro-cuidado/<int:registro_cuidado_id>/crear-sesion/', views.crear_sesion_cuidado, name='crear_sesion_cuidado'),
     path('sesion-cuidado/<int:sesion_cuidado_id>/responder-preguntas/', views.responder_preguntas, name='responder_preguntas'),
-    path('sesion_cuidado_id>/responder-preguntas/', views.responder_preguntas, name='responder_preguntas'),
+    path('<sesion_cuidado_id>/responder-preguntas/', views.responder_preguntas, name='responder_preguntas'),
     path('sesion-cuidado/<int:sesion_cuidado_id>/responder-pregunta/<int:pregunta_cuidado_id>/', views.responder_pregunta, name='responder_pregunta'),
     path('sesion-cuidado/resumen/<int:id_sesion>/', views.resumen_sesion_cuidado, name='resumen_sesion_cuidado'),
 ]
