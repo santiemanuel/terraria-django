@@ -2,11 +2,11 @@
 
 {% block content %}
 <div class="ui container">
-    <h2>Mis Plantas</h2>
+    <h2 class="ui huge header">Mis Plantas</h2>
     <div class="ui stackable four column grid">
         {% for planta in plantas %}
             <div class="column">
-                <div class="ui card">
+                <div class="ui green card">
                     <div class="image">
                         <img src="{{ planta.imagen.url }}" alt="{{ planta.nombre_comun }}">
                     </div>
