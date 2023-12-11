@@ -1,7 +1,7 @@
 <!-- navbar.html -->
-<div class="ui menu">
+<div class="ui menu fixed">
     <a href="{% url 'home' %}" class="header item">
-        <i class="large seedling icon"></i>
+        <i class="large seedling icon green"></i>
         Terraria
     </a>
     <a href="{% url 'plants' %}" class="item">
@@ -19,7 +19,7 @@
                 <a href="{% url 'logout' %}" class="ui button">Cerrar sesión</a>
             </div>
             <div class="item">
-                <a href="{% url 'crear_registro_cuidado' %}" class="ui primary button">Crear Registro</a>
+                <a href="{% url 'crear_registro_cuidado' %}" class="ui green button">Crear Registro</a>
             </div>
         {% else %}
             <div class="item">
@@ -30,7 +30,7 @@
             </div>
         {% endif %}
         <button class="ui button icon basic" id="darkmode">
-            <i class="moon icon"></i>
+            <i class="moon icon yellow"></i>
           </button>
     </div>
 </div>

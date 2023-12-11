@@ -4,15 +4,24 @@ from .planta import Planta
 
 
 class Pregunta(models.Model):
+    TIPO_OPCIONES = 'opciones'
+    TIPO_NUMERICA = 'numerica'
+    TIPO_CHOICES = [
+        (TIPO_OPCIONES, 'Opciones'),
+        (TIPO_NUMERICA, 'Numérica'),
+    ]
+
     texto = models.CharField(max_length=200)
-    opciones = models.TextField()
+    opciones = models.TextField(blank=True)
+    tipo = models.CharField(max_length=10, choices=TIPO_CHOICES, default=TIPO_OPCIONES)
 
     def get_opciones(self):
-        return json.loads(self.opciones)
+        if self.tipo == self.TIPO_OPCIONES:
+            return json.loads(self.opciones)
+        return None
 
     def __str__(self):
         return self.texto
-
 
 class RegistroCuidado(models.Model):
     ESTADOS = [

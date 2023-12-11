@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect, HttpResponse
 from .models.planta import Planta
 from .models.pregunta import PreguntaCuidado, RegistroCuidado, SesionCuidado, RespuestaCuidado
 from .forms.registro_form import RegistroCuidadoForm
+from .forms.pregunta_form import PreguntaForm
+from .forms.planta_form import PlantaForm
 from django.utils import timezone
+from django.db import transaction
+from django.shortcuts import get_object_or_404
 
 
 def home(request):
@@ -11,6 +15,28 @@ def home(request):
 def plants(request):
     plantas = Planta.objects.all() 
     return render(request, 'plantas.html', {'plantas': plantas})
+
+def crear_planta(request):
+    if request.method == 'POST':
+        form = PlantaForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = PlantaForm()
+
+    return render(request, 'crear_planta.html', {'form': form})
+
+def crear_pregunta(request):
+    if request.method == 'POST':
+        form = PreguntaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = PreguntaForm()
+
+    return render(request, 'crear_pregunta.html', {'form': form})
 
 def crear_registro_cuidado(request):
     if request.method == 'POST':
@@ -58,27 +84,29 @@ def responder_preguntas(request, sesion_cuidado_id):
     return redirect('responder_pregunta', sesion_cuidado_id=sesion_cuidado.id, pregunta_cuidado_id=pregunta_cuidado.id)
 
 def responder_pregunta(request, sesion_cuidado_id, pregunta_cuidado_id):
-    sesion_cuidado = SesionCuidado.objects.get(pk=sesion_cuidado_id)
-    pregunta_actual = PreguntaCuidado.objects.get(pk=pregunta_cuidado_id)
-
-    print(pregunta_actual.pregunta.texto)
-    print(pregunta_actual.pregunta.get_opciones())
+    sesion_cuidado = get_object_or_404(SesionCuidado, pk=sesion_cuidado_id)
+    pregunta_actual = get_object_or_404(PreguntaCuidado, pk=pregunta_cuidado_id)
 
     if request.method == 'POST':
         respuesta = request.POST.get('respuesta')
-        RespuestaCuidado.objects.create(
-            sesion_cuidado=sesion_cuidado,
-            pregunta_cuidado=pregunta_actual,
-            respuesta=respuesta,
-            usuario=request.user,
-        )
-        # Redireccionar a la siguiente pregunta
-        siguiente_pregunta = PreguntaCuidado.objects.filter(registro_cuidado=sesion_cuidado.registro_cuidado, orden__gt=pregunta_actual.orden).order_by('orden').first()
-        if siguiente_pregunta:
-            return redirect('responder_pregunta', sesion_cuidado_id=sesion_cuidado.id, pregunta_cuidado_id=siguiente_pregunta.id)
-        else:
-            # No hay más preguntas, redireccionar a la vista de detalle del registro de cuidado
-            return redirect('resumen_sesion_cuidado', id_sesion=sesion_cuidado.id)
+        if respuesta:  # Basic validation
+            with transaction.atomic():
+                RespuestaCuidado.objects.create(
+                    sesion_cuidado=sesion_cuidado,
+                    pregunta_cuidado=pregunta_actual,
+                    respuesta=respuesta,
+                    usuario=request.user,
+                )
+            # Redirection logic
+            siguiente_pregunta = PreguntaCuidado.objects.filter(
+                registro_cuidado=sesion_cuidado.registro_cuidado, 
+                orden__gt=pregunta_actual.orden
+            ).order_by('orden').first()
+
+            if siguiente_pregunta:
+                return redirect('responder_pregunta', sesion_cuidado_id=sesion_cuidado.id, pregunta_cuidado_id=siguiente_pregunta.id)
+            else:
+                return redirect('resumen_sesion_cuidado', id_sesion=sesion_cuidado.id)
     
     return render(request, 'responder_pregunta.html', {'pregunta_cuidado': pregunta_actual})
 

@@ -5,24 +5,23 @@ from .models.pregunta import Pregunta
 
 @admin.register(Pregunta)
 class PreguntaAdmin(admin.ModelAdmin):
-    list_display = ('texto', 'opciones')
-    list_filter = ('texto', 'opciones')
+    list_display = ('texto', 'opciones', 'tipo')
+    list_filter = ('texto', 'opciones', 'tipo')
     search_fields = ('texto', 'opciones')
 
     fieldsets = (
         (None, {
-            'fields': ('texto', 'opciones')
+            'fields': ('texto', 'opciones', 'tipo')
+
         }),
     )
 
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('texto', 'opciones')}
+            'fields': ('texto', 'opciones', 'tipo')}
         ),
     )
-
-
 
 @admin.register(Planta)
 class PlantaAdmin(admin.ModelAdmin):

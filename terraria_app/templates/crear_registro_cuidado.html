@@ -4,13 +4,23 @@
 <div class="ui container">
     <form method="post" class="ui form">
         {% csrf_token %}
-        <div class="field">
+        <div class="field {% if form.planta.errors %}error{% endif %}">
             <label>Planta</label>
             {{ form.planta }}
+            {% for error in form.planta.errors %}
+                <div class="ui error message">
+                    <p>{{ error }}</p>
+                </div>
+            {% endfor %}
         </div>
-        <div class="field">
+        <div class="field {% if form.preguntas.errors %}error{% endif %}">
             <label>Preguntas</label>
             {{ form.preguntas }}
+            {% for error in form.preguntas.errors %}
+                <div class="ui error message">
+                    <p>{{ error }}</p>
+                </div>
+            {% endfor %}
         </div>
         <button type="submit" class="ui button">Crear Registro</button>
     </form>

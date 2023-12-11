@@ -4,7 +4,8 @@
         "pk": 1,
         "fields": {
             "texto": "¿Cuál es el estado general de la planta?",
-            "opciones": "[\"Saludable\", \"Enferma\", \"Marchita\", \"Creciendo\"]"
+            "opciones": "[\"Saludable\", \"Enferma\", \"Marchita\", \"Creciendo\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -12,7 +13,8 @@
         "pk": 2,
         "fields": {
             "texto": "¿Cuándo fue la última vez que regaste la planta?",
-            "opciones": "[\"Hoy\", \"Hace 1-2 días\", \"Hace más de 3 días\", \"No recuerdo\"]"
+            "opciones": "[\"Hoy\", \"Hace 1-2 días\", \"Hace más de 3 días\", \"No recuerdo\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -20,7 +22,8 @@
         "pk": 3,
         "fields": {
             "texto": "¿Cómo se ven las hojas de la planta?",
-            "opciones": "[\"Verdes y brillantes\", \"Manchas amarillas o marrones\", \"Hojas caídas\", \"Secas o crujientes\"]"
+            "opciones": "[\"Verdes y brillantes\", \"Manchas amarillas o marrones\", \"Hojas caídas\", \"Secas o crujientes\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -28,7 +31,8 @@
         "pk": 4,
         "fields": {
             "texto": "¿La planta ha sido trasplantada recientemente?",
-            "opciones": "[\"Sí, en la última semana\", \"Sí, en el último mes\", \"No, no ha sido trasplantada\", \"No estoy seguro\"]"
+            "opciones": "[\"Sí, en la última semana\", \"Sí, en el último mes\", \"No, no ha sido trasplantada\", \"No estoy seguro\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -36,7 +40,8 @@
         "pk": 5,
         "fields": {
             "texto": "¿Qué tipo de luz recibe la planta principalmente?",
-            "opciones": "[\"Luz solar directa\", \"Luz solar indirecta\", \"Sombra\", \"Luz artificial\"]"
+            "opciones": "[\"Luz solar directa\", \"Luz solar indirecta\", \"Sombra\", \"Luz artificial\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -44,7 +49,8 @@
         "pk": 6,
         "fields": {
             "texto": "¿Has notado crecimiento nuevo en la planta?",
-            "opciones": "[\"Sí, mucho crecimiento\", \"Sí, algo de crecimiento\", \"No, nada de crecimiento\", \"No estoy seguro\"]"
+            "opciones": "[\"Sí, mucho crecimiento\", \"Sí, algo de crecimiento\", \"No, nada de crecimiento\", \"No estoy seguro\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -52,7 +58,8 @@
         "pk": 7,
         "fields": {
             "texto": "¿Cómo está el drenaje de la maceta?",
-            "opciones": "[\"Excelente\", \"Bueno\", \"Pobre\", \"No tiene drenaje\"]"
+            "opciones": "[\"Excelente\", \"Bueno\", \"Pobre\", \"No tiene drenaje\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -60,7 +67,8 @@
         "pk": 8,
         "fields": {
             "texto": "¿La planta está recibiendo suficiente agua?",
-            "opciones": "[\"Demasiada agua\", \"Suficiente agua\", \"Necesita más agua\", \"No estoy seguro\"]"
+            "opciones": "[\"Demasiada agua\", \"Suficiente agua\", \"Necesita más agua\", \"No estoy seguro\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -68,7 +76,8 @@
         "pk": 9,
         "fields": {
             "texto": "¿Qué tan a menudo fertilizas la planta?",
-            "opciones": "[\"Semanalmente\", \"Mensualmente\", \"Raramente o nunca\", \"No estoy seguro\"]"
+            "opciones": "[\"Semanalmente\", \"Mensualmente\", \"Raramente o nunca\", \"No estoy seguro\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -76,7 +85,8 @@
         "pk": 10,
         "fields": {
             "texto": "¿La planta tiene alguna floración?",
-            "opciones": "[\"Sí, muchas flores\", \"Sí, algunas flores\", \"No, no tiene flores\", \"Es una planta sin flores\"]"
+            "opciones": "[\"Sí, muchas flores\", \"Sí, algunas flores\", \"No, no tiene flores\", \"Es una planta sin flores\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -84,7 +94,8 @@
         "pk": 11,
         "fields": {
             "texto": "¿Cuánto tiempo ha estado la planta en su ubicación actual?",
-            "opciones": "[\"Menos de un mes\", \"1-6 meses\", \"Más de 6 meses\", \"Siempre ha estado ahí\"]"
+            "opciones": "[\"Menos de un mes\", \"1-6 meses\", \"Más de 6 meses\", \"Siempre ha estado ahí\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -92,7 +103,8 @@
         "pk": 12,
         "fields": {
             "texto": "¿Has podado la planta recientemente?",
-            "opciones": "[\"Sí, en la última semana\", \"Sí, en el último mes\", \"No, nunca he podado\", \"No estoy seguro\"]"
+            "opciones": "[\"Sí, en la última semana\", \"Sí, en el último mes\", \"No, nunca he podado\", \"No estoy seguro\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -100,7 +112,8 @@
         "pk": 13,
         "fields": {
             "texto": "¿Cómo describirías el tamaño de la planta?",
-            "opciones": "[\"Muy grande para su maceta\", \"Tamaño adecuado\", \"Demasiado pequeña\", \"No estoy seguro\"]"
+            "opciones": "[\"Muy grande para su maceta\", \"Tamaño adecuado\", \"Demasiado pequeña\", \"No estoy seguro\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -108,7 +121,8 @@
         "pk": 14,
         "fields": {
             "texto": "¿La planta está expuesta a corrientes de aire o cambios de temperatura?",
-            "opciones": "[\"Sí, frecuentemente\", \"Solo ocasionalmente\", \"No, nunca\", \"No estoy seguro\"]"
+            "opciones": "[\"Sí, frecuentemente\", \"Solo ocasionalmente\", \"No, nunca\", \"No estoy seguro\"]",
+            "tipo": "opciones"
         }
     },
     {
@@ -116,7 +130,98 @@
         "pk": 15,
         "fields": {
             "texto": "¿Observas alguna plaga en la planta?",
-            "opciones": "[\"Sí, insectos visibles\", \"Sí, signos de mordeduras\", \"No, no hay plagas\", \"No estoy seguro\"]"
+            "opciones": "[\"Sí, insectos visibles\", \"Sí, signos de mordeduras\", \"No, no hay plagas\", \"No estoy seguro\"]",
+            "tipo": "opciones"
+        }
+    },
+    {
+        "model": "terraria_app.pregunta",
+        "pk": 16,
+        "fields": {
+            "texto": "¿Cuál es la altura actual de la planta (en centímetros)?",
+            "opciones": "",
+            "tipo": "numerica"
+        }
+    },
+    {
+        "model": "terraria_app.pregunta",
+        "pk": 17,
+        "fields": {
+            "texto": "¿Cuántas hojas tiene la planta?",
+            "opciones": "",
+            "tipo": "numerica"
+        }
+    },
+    {
+        "model": "terraria_app.pregunta",
+        "pk": 18,
+        "fields": {
+            "texto": "¿Con qué frecuencia riegas la planta (días entre riegos)?",
+            "opciones": "",
+            "tipo": "numerica"
+        }
+    },
+    {
+        "model": "terraria_app.pregunta",
+        "pk": 19,
+        "fields": {
+            "texto": "¿Cuántas horas al día está la planta expuesta a la luz?",
+            "opciones": "",
+            "tipo": "numerica"
+        }
+    },
+    {
+        "model": "terraria_app.pregunta",
+        "pk": 20,
+        "fields": {
+            "texto": "¿Cuántos gramos o mililitros de fertilizante usas por aplicación?",
+            "opciones": "",
+            "tipo": "numerica"
+        }
+    },
+    {
+        "model": "terraria_app.pregunta",
+        "pk": 21,
+        "fields": {
+            "texto": "¿Cuántos meses o años tiene la planta?",
+            "opciones": "",
+            "tipo": "numerica"
+        }
+    },
+    {
+        "model": "terraria_app.pregunta",
+        "pk": 22,
+        "fields": {
+            "texto": "¿Cuál es el diámetro de la maceta de la planta (en centímetros)?",
+            "opciones": "",
+            "tipo": "numerica"
+        }
+    },
+    {
+        "model": "terraria_app.pregunta",
+        "pk": 23,
+        "fields": {
+            "texto": "¿Cuántas flores tiene la planta?",
+            "opciones": "",
+            "tipo": "numerica"
+        }
+    },
+    {
+        "model": "terraria_app.pregunta",
+        "pk": 24,
+        "fields": {
+            "texto": "Si tienes más de una planta, ¿cuál es la distancia aproximada entre ellas (en centímetros)?",
+            "opciones": "",
+            "tipo": "numerica"
+        }
+    },
+    {
+        "model": "terraria_app.pregunta",
+        "pk": 25,
+        "fields": {
+            "texto": "¿Cuántas horas de sol directo recibe la planta al día?",
+            "opciones": "",
+            "tipo": "numerica"
         }
     }
 ]

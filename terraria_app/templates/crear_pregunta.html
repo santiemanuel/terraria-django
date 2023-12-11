@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Crear Pregunta
+{% endblock %}
+
+{% block content %}
+    <div class="ui container">
+        <h1 class="ui header">Crear Pregunta</h1>
+        <form method="post" class="ui form">
+            {% csrf_token %}
+            <div class="field">
+                <label>Texto</label>
+                {{ form.texto }}
+            </div>
+            <div class="field">
+                <label>Tipo</label>
+                {{ form.tipo }}
+            </div>
+            <div class="field">
+                <label>Opción 1</label>
+                {{ form.opcion1 }}
+            </div>
+            <div class="field">
+                <label>Opción 2</label>
+                {{ form.opcion2 }}
+            </div>
+            <div class="field">
+                <label>Opción 3</label>
+                {{ form.opcion3 }}
+            </div>
+            <div class="field">
+                <label>Opción 4</label>
+                {{ form.opcion4 }}
+            </div>
+            <button type="submit" class="ui button">Guardar</button>
+        </form>
+    </div>
+{% endblock %}

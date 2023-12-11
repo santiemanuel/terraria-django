@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="ui container">
+    <form method="post" class="ui form" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- Automatically render all fields except fecha_adquisicion -->
+        {% for field in form %}
+            {% if field.name != 'fecha_adquisicion' %}
+                <p>
+                    {{ field.label_tag }} {{ field }}
+                    {% if field.help_text %}
+                        <small style="color: grey;">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <div class="ui error message">{{ error }}</div>
+                    {% endfor %}
+                </p>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Custom Semantic UI Calendar for fecha_adquisicion -->
+        <div class="field{% if form.fecha_adquisicion.errors %} error{% endif %}">
+            <label for="id_fecha_adquisicion">Fecha de adquisición</label>
+            <div class="ui calendar" id="setDate">
+                <div class="ui input left icon">
+                    <i class="calendar icon"></i>
+                    <input type="text" placeholder="Elige una fecha" name="fecha_adquisicion" id="id_fecha_adquisicion" value="{{ form.fecha_adquisicion.value|date:'Y-m-d' }}">
+                </div>
+            </div>
+            {% for error in form.fecha_adquisicion.errors %}
+                <div class="ui error message">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="ui button">Enviar</button>
+    </form>
+</div>
+
+{% endblock %}

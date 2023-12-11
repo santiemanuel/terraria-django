@@ -24,7 +24,13 @@
                 </div>
             </div>
         {% empty %}
-            <p>No hay plantas registradas aún.</p>
+        <div class="ui info message">
+            <div class="header">
+              No hay plantas.
+            </div>
+            <ul class="list">
+              <li>Registra tu primera planta para empezar.</li>
+            </ul>
         {% endfor %}
     </div>
 </div>
