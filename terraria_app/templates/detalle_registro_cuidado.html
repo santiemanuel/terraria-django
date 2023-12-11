@@ -2,20 +2,20 @@
 
 {% block content %}
 <div class="ui container">
-    <h2 class="ui huge header">Detalles del Registro de Cuidado: {{ registro_cuidado }}</h2>
+    <h2 class="ui huge header">Detalles del Registro: {{ registro_cuidado }}</h2>
 
     <a href="{% url 'crear_sesion_cuidado' registro_cuidado.id %}" class="ui green button">Responder Registro</a>
 
     <h3 class="ui normal header">Sesiones Realizadas</h3>
     <div class="ui relaxed list">
         {% for sesion in sesiones %}
-            <div class="item">
+            <a href="{% url 'resumen_sesion_cuidado' id_sesion=sesion.id %}" class="item">
                 <i class="ui large calendar check outline icon"></i>
                 <div class="content">
                     <div class="header">Sesión iniciada el {{ sesion.fecha_inicio|date:"Y-m-d H:i" }}</div>
                     <div class="description">Completada por {{ sesion.usuario.username }}</div>
                 </div>
-            </div>
+            </a>
         {% empty %}
             <p>No hay sesiones registradas para este registro de cuidado.</p>
         {% endfor %}

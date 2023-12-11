@@ -36,7 +36,7 @@ class RegistroCuidado(models.Model):
     estado = models.CharField(max_length=12, choices=ESTADOS, default='ABIERTO')
 
     def __str__(self):
-        return f"{self.estado} - Cuidado de {self.planta.nombre_comun} por {self.usuario.username}"
+        return f"Cuidado de {self.planta.nombre_comun} por {self.usuario.username}"
 
 
 class PreguntaCuidado(models.Model):
