@@ -27,7 +27,9 @@
         </style>
     </head>
     <body>
-        {% include 'navbar.html' %}
+        {% block navbar %}
+            {% include 'navbar.html' %}
+        {% endblock %}
         <div class="ui container main-container" style="margin-top: 50px; margin-bottom: 50px;">
             {% block content %}
             {% endblock %}
