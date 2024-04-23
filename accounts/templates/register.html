@@ -3,9 +3,42 @@
 {% block title %}Registro{% endblock %}
 
 {% block content %}
-    <form method="post" class="ui form">
+<div class="ui main-container">
+    <form method="post" class="ui form divided list">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="ui button">Registrarse</button>
+        <div class="item">
+            <div class="content">
+                <div class="header">Información Personal</div>
+                <div class="field">
+                    <label>{{ form.first_name.label }}</label>
+                    {{ form.first_name }}
+                </div>
+                <div class="field">
+                    <label>{{ form.last_name.label }}</label>
+                    {{ form.last_name }}
+                </div>
+                <div class="field">
+                    <label>{{ form.email.label }}</label>
+                    {{ form.email }}
+                </div>
+
+            </div>
+        </div>
+        <div class="item">
+            <div class="content">
+                <div class="field">
+                    <label>{{ form.password1.label }}</label>
+                    {{ form.password1 }}
+                    <span class="helptext">{{ form.password1.help_text }}</span>
+                </div>
+                <div class="field">
+                    <label>{{ form.password2.label }}</label>
+                    {{ form.password2 }}
+                    <span class="helptext">{{ form.password2.help_text }}</span>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="ui button inverted">Registrarse</button>
     </form>
+</div>
 {% endblock %}

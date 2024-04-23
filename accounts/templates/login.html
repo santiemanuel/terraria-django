@@ -5,7 +5,14 @@
 {% block content %}
     <form method="post" class="ui form">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="field">
+            <label>{{ form.username.label }}</label>
+            {{ form.username }}
+        </div>
+        <div class="field">
+            <label>{{ form.password.label }}</label>
+            {{ form.password }}
+        </div>
         <button type="submit" class="ui button">Iniciar sesión</button>
     </form>
 {% endblock %}
